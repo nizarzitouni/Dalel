@@ -1,3 +1,4 @@
+import 'package:dalel/core/database/cache/cache_helper.dart';
 import 'package:dalel/core/function/navigation.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   void initState() {
     super.initState();
     initSlidingAnimation();
+
     delayedNavigateToOnBoarding(context);
   }
 
@@ -37,9 +39,17 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   }
 
   void delayedNavigateToOnBoarding(BuildContext ctx) {
-    Future.delayed(const Duration(seconds: 3), () {
-      customReplacementNavigate(ctx, kOnBoardingView);
-    });
+    bool isOnBoardingVisited = CacheHelper().getData(key: 'isOnBoardingVisited') ?? false;
+
+    if (!isOnBoardingVisited) {
+      Future.delayed(const Duration(seconds: 3), () {
+        customReplacementNavigate(ctx, kOnBoardingView);
+      });
+    } else {
+      Future.delayed(const Duration(seconds: 3), () {
+        customReplacementNavigate(ctx, kSignUpView);
+      });
+    }
   }
 
   void initSlidingAnimation() {

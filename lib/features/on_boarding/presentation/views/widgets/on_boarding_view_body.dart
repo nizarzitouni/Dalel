@@ -1,3 +1,4 @@
+import 'package:dalel/core/database/cache/cache_helper.dart';
 import 'package:dalel/core/function/navigation.dart';
 import 'package:dalel/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,11 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
         physics: const BouncingScrollPhysics(),
         children: [
           const SizedBox(height: 40.0),
-          CustomNavBar(onTap: () => customReplacementNavigate(context, kSignUpView)),
+          CustomNavBar(onTap: () {
+            CacheHelper().saveData(key: 'isOnBoardingVisited', value: true);
+
+            customReplacementNavigate(context, kSignUpView);
+          }),
           OnBoardingWidgetBody(
             pageController: pageController,
             onPageChanged: (index) {
