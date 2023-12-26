@@ -11,11 +11,13 @@ class OnBoardingViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
+      child: ListView(
+        physics: const BouncingScrollPhysics(),
         children: [
           const SizedBox(height: 40.0),
           const CustomNavBar(),
           OnBoardingWidgetBody(),
+          const SizedBox(height: 88.0),
           const CustomBtn(
             text: 'Next',
             //color: AppColors.primaryColor,
