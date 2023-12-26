@@ -4,15 +4,18 @@ import '../../../../../core/utils/app_strings.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 
 class CustomNavBar extends StatelessWidget {
-  const CustomNavBar({Key? key}) : super(key: key);
-
+  const CustomNavBar({Key? key, required this.onTap}) : super(key: key);
+  final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
     return Align(
         alignment: Alignment.centerRight,
-        child: Text(
-          AppStrings.skip,
-          style: AppTextStyles.poppins300style16.copyWith(fontWeight: FontWeight.w400),
+        child: GestureDetector(
+          onTap: onTap,
+          child: Text(
+            AppStrings.skip,
+            style: AppTextStyles.poppins300style16.copyWith(fontWeight: FontWeight.w400),
+          ),
         ));
   }
 }

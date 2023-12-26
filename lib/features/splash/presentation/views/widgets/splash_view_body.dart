@@ -1,7 +1,7 @@
 import 'package:dalel/core/function/navigation.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/routes/app_router.dart';
+import '../../../../../core/routes/app_router.dart';
 import 'sliding_logo_text.dart';
 
 class SplashViewBody extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_strings.dart';
-import '../../../../core/utils/app_text_styles.dart';
+import '../../../../../core/utils/app_strings.dart';
+import '../../../../../core/utils/app_text_styles.dart';
 
 class SlidingLogoText extends StatelessWidget {
   const SlidingLogoText({
