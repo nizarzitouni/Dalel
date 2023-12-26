@@ -3,6 +3,7 @@ import 'package:dalel/core/function/navigation.dart';
 import 'package:dalel/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/services/service_locator.dart';
 import '../../../../../core/utils/size_config.dart';
 import 'custom_nav_bar.dart';
 import 'get_buttons.dart';
@@ -27,7 +28,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
         children: [
           const SizedBox(height: 40.0),
           CustomNavBar(onTap: () {
-            CacheHelper().saveData(key: 'isOnBoardingVisited', value: true);
+            getIt<CacheHelper>().saveData(key: 'isOnBoardingVisited', value: true);
 
             customReplacementNavigate(context, kSignUpView);
           }),

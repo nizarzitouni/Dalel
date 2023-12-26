@@ -3,6 +3,7 @@ import 'package:dalel/core/function/navigation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/routes/app_router.dart';
+import '../../../../../core/services/service_locator.dart';
 import 'sliding_logo_text.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -39,7 +40,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   }
 
   void delayedNavigateToOnBoarding(BuildContext ctx) {
-    bool isOnBoardingVisited = CacheHelper().getData(key: 'isOnBoardingVisited') ?? false;
+    bool isOnBoardingVisited = getIt<CacheHelper>().getData(key: 'isOnBoardingVisited') ?? false;
 
     if (!isOnBoardingVisited) {
       Future.delayed(const Duration(seconds: 3), () {
