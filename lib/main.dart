@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'core/routes/app_router.dart';
+
 void main() {
   runApp(const Dalel());
 }
@@ -9,6 +11,9 @@ class Dalel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: AppRouter.router,
+    );
   }
 }
