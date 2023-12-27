@@ -5,20 +5,20 @@ class AuthState {}
 
 class AuthInitial extends AuthState {}
 
-class SigInLoading extends AuthState {}
+class SiginLoadingState extends AuthState {}
 
-class SigInSuccess extends AuthState {}
+class SiginSuccessState extends AuthState {}
 
-class SigInFailure extends AuthState {
+class SiginFailureState extends AuthState {
   final String errorMessage;
-  SigInFailure({required this.errorMessage});
+  SiginFailureState({required this.errorMessage});
 }
 
-class SigUpLoading extends AuthState {}
+class SignupLoadingState extends AuthState {}
 
-class SigUpSuccess extends AuthState {}
+class SignupSuccessState extends AuthState {}
 
-class SigUpFailure extends AuthState {
+class SignupFailureState extends AuthState {
   final String errorMessage;
-  SigUpFailure({required this.errorMessage});
+  SignupFailureState({required this.errorMessage});
 }

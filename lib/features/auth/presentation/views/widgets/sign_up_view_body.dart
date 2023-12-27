@@ -1,12 +1,10 @@
 import 'package:dalel/core/routes/app_router.dart';
 import 'package:dalel/core/utils/app_strings.dart';
-import 'package:dalel/core/widgets/custom_btn.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/function/navigation.dart';
-import 'custom_text_field.dart';
+import 'custom_signup_form.dart';
 import 'have_an_account_widget.dart';
-import 'terms_and_condition_widget.dart';
 import 'welcome_text_widget.dart';
 
 class SignUpViewBody extends StatelessWidget {
@@ -21,18 +19,7 @@ class SignUpViewBody extends StatelessWidget {
           const SliverToBoxAdapter(child: SizedBox(height: 152)),
           const SliverToBoxAdapter(child: WelcomeTextWidget(text: AppStrings.welcome)),
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
-          const SliverToBoxAdapter(child: CustomTextFormField(labelText: AppStrings.fristName)),
-          const SliverToBoxAdapter(child: CustomTextFormField(labelText: AppStrings.lastName)),
-          const SliverToBoxAdapter(child: CustomTextFormField(labelText: AppStrings.emailAddress)),
-          const SliverToBoxAdapter(child: CustomTextFormField(labelText: AppStrings.password)),
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
-          const SliverToBoxAdapter(child: TermsAndCondtionWidget()),
-          const SliverToBoxAdapter(child: SizedBox(height: 88)),
-          SliverToBoxAdapter(
-              child: CustomBtn(
-            text: AppStrings.signUp,
-            onPressed: () {},
-          )),
+          const CustomSignUpForm(),
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
           SliverToBoxAdapter(
             child: HaveAnAccountWidget(
