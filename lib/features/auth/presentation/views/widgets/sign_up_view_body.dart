@@ -1,3 +1,4 @@
+import 'package:dalel/core/routes/app_router.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/widgets/custom_btn.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,7 @@ class SignUpViewBody extends StatelessWidget {
               text1: AppStrings.alreadyHaveAnAccount,
               text2: AppStrings.signIn,
               onTap: () {
-                customReplacementNavigate(context, "/signIn");
+                customReplacementNavigate(context, kSignInView);
               },
             ),
           ),

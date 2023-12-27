@@ -28,7 +28,7 @@ class GetButtons extends StatelessWidget {
           GestureDetector(
             onTap: () {
               onBoardingVisited();
-              customReplacementNavigate(context, kLogInView);
+              customReplacementNavigate(context, kSignInView);
             },
             child: Text(
               AppStrings.loginNow,
