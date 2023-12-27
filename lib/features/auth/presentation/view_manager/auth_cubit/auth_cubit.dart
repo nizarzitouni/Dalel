@@ -1,19 +1,20 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  late String? fristName;
-  late String? lastName;
-  late String? emailAddress;
-  late String? password;
+  String? fristName;
+  String? lastName;
+  String? emailAddress;
+  String? password;
 
-  var signupFormKey;
+  GlobalKey<FormState> signupFormKey = GlobalKey();
 
   var obscurePasswordTextValue;
 
-  var termsAndConditionCheckBoxValue;
+  bool? termsAndConditionCheckBoxValue = false;
 
   AuthCubit() : super(AuthInitial());
 
@@ -53,4 +54,9 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   void obscurePasswordText() {}
+
+  void updateTermsAndConditionCheckBox({required bool newValue}) {
+    termsAndConditionCheckBoxValue = newValue;
+    emit(TermsAndConditionUpdateState());
+  }
 }

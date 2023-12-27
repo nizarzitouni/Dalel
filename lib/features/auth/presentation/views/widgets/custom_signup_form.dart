@@ -5,6 +5,7 @@ import 'package:dalel/core/widgets/custom_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/function/navigation.dart';
 import '../../view_manager/auth_cubit/auth_cubit.dart';
 import 'custom_text_field.dart';
 import 'terms_and_condition_widget.dart';
@@ -15,12 +16,12 @@ class CustomSignUpForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        // if (state is SignupSuccessState) {
-        //   showToast("Successfully,Check your email to verfiy your account");
-        //   customReplacementNavigate(context, "/signIn");
-        // } else if (state is SignupFailureState) {
-        //   showToast(state.errorMessage);
-        // }
+        if (state is SignupSuccessState) {
+          //showToast("Successfully,Check your email to verfiy your account");
+          customReplacementNavigate(context, "/signIn");
+        } else if (state is SignupFailureState) {
+          //showToast(state.errorMessage);
+        }
       },
       builder: (context, state) {
         AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
@@ -53,7 +54,8 @@ class CustomSignUpForm extends StatelessWidget {
                           }
                         }
                       },
-                      text: AppStrings.signUp),
+                      text: AppStrings.signUp,
+                    ),
             ],
           ),
         );

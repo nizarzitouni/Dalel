@@ -22,3 +22,5 @@ class SignupFailureState extends AuthState {
   final String errorMessage;
   SignupFailureState({required this.errorMessage});
 }
+
+class TermsAndConditionUpdateState extends AuthState {}
