@@ -12,9 +12,8 @@ class AuthCubit extends Cubit<AuthState> {
 
   GlobalKey<FormState> signupFormKey = GlobalKey();
 
-  var obscurePasswordTextValue;
-
-  bool? termsAndConditionCheckBoxValue = false;
+  bool obscurePasswordTextValue = true;
+  bool termsAndConditionCheckBoxValue = false;
 
   AuthCubit() : super(AuthInitial());
 
@@ -42,6 +41,7 @@ class AuthCubit extends Cubit<AuthState> {
     emit(SignupLoadingState());
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailAddress!, password: password!);
+      emit(SignupSuccessState());
     } on FirebaseAuthException catch (ex) {
       if (ex.code == 'weak-password') {
         emit(SignupFailureState(errorMessage: 'weak password'));
@@ -53,7 +53,10 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void obscurePasswordText() {}
+  void obscurePasswordText() {
+    obscurePasswordTextValue = !obscurePasswordTextValue;
+    emit(ObsecurePasswordTextState());
+  }
 
   void updateTermsAndConditionCheckBox({required bool newValue}) {
     termsAndConditionCheckBoxValue = newValue;

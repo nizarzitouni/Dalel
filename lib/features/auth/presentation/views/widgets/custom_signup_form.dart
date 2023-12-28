@@ -1,3 +1,4 @@
+import 'package:dalel/core/routes/app_router.dart';
 import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/widgets/custom_btn.dart';
@@ -5,6 +6,7 @@ import 'package:dalel/core/widgets/custom_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/function/custom_toast.dart';
 import '../../../../../core/function/navigation.dart';
 import '../../view_manager/auth_cubit/auth_cubit.dart';
 import 'custom_text_field.dart';
@@ -17,10 +19,10 @@ class CustomSignUpForm extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is SignupSuccessState) {
-          //showToast("Successfully,Check your email to verfiy your account");
-          customReplacementNavigate(context, "/signIn");
+          showToast("Successfully,Check your email to verfiy your account");
+          customReplacementNavigate(context, kSignInView);
         } else if (state is SignupFailureState) {
-          //showToast(state.errorMessage);
+          showToast(state.errorMessage);
         }
       },
       builder: (context, state) {
