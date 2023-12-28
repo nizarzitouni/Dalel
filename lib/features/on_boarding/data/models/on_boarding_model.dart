@@ -14,17 +14,17 @@ class OnBoardingModel {
 
 List<OnBoardingModel> onBoardingData = [
   OnBoardingModel(
-    imagePath: Assets.imagesOnBoarding1,
+    imagePath: AppAssets.imagesOnBoarding1,
     title: "Explore The history with Dalel in a smart way",
     subTitle: "Using our app’s history libraries you can find many historical periods ",
   ),
   OnBoardingModel(
-    imagePath: Assets.imagesOnBoarding2,
+    imagePath: AppAssets.imagesOnBoarding2,
     title: "From every place on earth",
     subTitle: "A big variety of ancient places from all over the world",
   ),
   OnBoardingModel(
-    imagePath: Assets.imagesOnBoarding3,
+    imagePath: AppAssets.imagesOnBoarding3,
     title: "Using modern AI technology for better user experience",
     subTitle: "AI provide recommendations and helps you to continue the search journey",
   ),

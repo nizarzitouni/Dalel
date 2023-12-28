@@ -1,4 +1,5 @@
 import 'package:dalel/features/auth/presentation/view_manager/auth_cubit/auth_cubit.dart';
+import 'package:dalel/features/auth/presentation/views/forget_password_view.dart';
 import 'package:dalel/features/auth/presentation/views/sign_up_view.dart';
 import 'package:dalel/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:dalel/features/splash/presentation/views/splash_view.dart';
@@ -12,7 +13,9 @@ const kSplashView = '/';
 const kOnBoardingView = '/onBoarding';
 const kSignInView = '/signIn';
 const kSignUpView = '/signUp';
+const kforgetPasswordView = '/forgotPassword';
 const kHomeView = '/home';
+const kHomeNavBarView = '/homeNavBar';
 
 abstract class AppRouter {
   static final router = GoRouter(
@@ -38,6 +41,10 @@ abstract class AppRouter {
           create: (context) => AuthCubit(),
           child: const SignUpView(),
         ),
+      ),
+      GoRoute(
+        path: kforgetPasswordView,
+        builder: (context, state) => const ForgetPasswordView(),
       ),
       GoRoute(
         path: kHomeView,

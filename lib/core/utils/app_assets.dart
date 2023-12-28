@@ -1,6 +1,6 @@
-class Assets {
-  Assets._();
-  
+class AppAssets {
+  AppAssets._();
+
   /// Assets for imagesFogetPassword
   /// assets/images/fogetPassword.png
   static const String imagesFogetPassword = "assets/images/fogetPassword.png";

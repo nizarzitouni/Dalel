@@ -50,7 +50,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
       });
     } else {
       Future.delayed(const Duration(seconds: 3), () {
-        FirebaseAuth.instance.currentUser == null ? customReplacementNavigate(ctx, kSignUpView) : customReplacementNavigate(ctx, kHomeView);
+        FirebaseAuth.instance.currentUser == null ? customReplacementNavigate(ctx, kSignInView) : customReplacementNavigate(ctx, kHomeView);
       });
     }
   }

@@ -11,29 +11,30 @@ class AuthCubit extends Cubit<AuthState> {
   String? password;
 
   GlobalKey<FormState> signupFormKey = GlobalKey();
+  GlobalKey<FormState> signinFormKey = GlobalKey();
 
   bool obscurePasswordTextValue = true;
   bool termsAndConditionCheckBoxValue = false;
 
   AuthCubit() : super(AuthInitial());
 
-  Future<void> loginUser({required String email, required String password}) async {
-    emit(SiginLoadingState());
+  Future<void> sigInWithEmailAndPassword() async {
+    emit(SigninLoadingState());
     try {
       try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+        await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailAddress!, password: password!);
+        emit(SigninSuccessState());
       } on FirebaseAuthException catch (ex) {
         if (ex.code == 'user-not-found') {
-          emit(SiginFailureState(errorMessage: 'user-not-found'));
+          emit(SigninFailureState(errorMessage: 'user-not-found'));
         } else if (ex.code == 'wrong-password') {
-          emit(SiginFailureState(errorMessage: 'wrong-password'));
+          emit(SigninFailureState(errorMessage: 'wrong-password'));
         }
       } catch (ex) {
-        emit(SiginFailureState(errorMessage: 'Exception: ${ex.toString()}'));
+        emit(SigninFailureState(errorMessage: 'Exception: ${ex.toString()}'));
       }
-      emit(SiginSuccessState());
     } on Exception catch (e) {
-      emit(SiginFailureState(errorMessage: 'Somthing went wrong: ${e.toString()}'));
+      emit(SigninFailureState(errorMessage: 'Somthing went wrong: ${e.toString()}'));
     }
   }
 

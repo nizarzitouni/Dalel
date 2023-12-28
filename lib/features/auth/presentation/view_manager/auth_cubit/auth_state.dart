@@ -5,13 +5,13 @@ class AuthState {}
 
 class AuthInitial extends AuthState {}
 
-class SiginLoadingState extends AuthState {}
+class SigninLoadingState extends AuthState {}
 
-class SiginSuccessState extends AuthState {}
+class SigninSuccessState extends AuthState {}
 
-class SiginFailureState extends AuthState {
+class SigninFailureState extends AuthState {
   final String errorMessage;
-  SiginFailureState({required this.errorMessage});
+  SigninFailureState({required this.errorMessage});
 }
 
 class SignupLoadingState extends AuthState {}
