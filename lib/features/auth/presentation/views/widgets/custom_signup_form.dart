@@ -20,7 +20,7 @@ class CustomSignUpForm extends StatelessWidget {
       listener: (context, state) {
         if (state is SignupSuccessState) {
           showToast("Successfully,Check your email to verfiy your account");
-          customReplacementNavigate(context, kSignInView);
+          customReplacementNavigate(context, kHomeView);
         } else if (state is SignupFailureState) {
           showToast(state.errorMessage);
         }
