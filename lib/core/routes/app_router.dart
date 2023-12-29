@@ -44,7 +44,11 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kforgetPasswordView,
-        builder: (context, state) => const ForgetPasswordView(),
+        builder: (context, state) => BlocBuilder<AuthCubit, AuthState>(
+          builder: (context, state) {
+            return const ForgetPasswordView();
+          },
+        ),
       ),
       GoRoute(
         path: kHomeView,

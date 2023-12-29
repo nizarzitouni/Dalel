@@ -2,7 +2,6 @@ import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/widgets/custom_btn.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,9 +19,10 @@ class CustomSignInForm extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is SigninSuccessState) {
-          FirebaseAuth.instance.currentUser!.emailVerified
-              ? customReplacementNavigate(context, kHomeNavBarView)
-              : showToast("Please Verify Your Account");
+          customReplacementNavigate(context, kHomeNavBarView);
+          // FirebaseAuth.instance.currentUser!.emailVerified
+          //     ? customReplacementNavigate(context, kHomeNavBarView)
+          //     : showToast("Please Verify Your Account");
         } else if (state is SigninFailureState) {
           showToast(state.errorMessage);
         }
