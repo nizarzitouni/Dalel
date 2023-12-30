@@ -48,6 +48,7 @@ class AuthCubit extends Cubit<AuthState> {
     emit(SignupLoadingState());
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailAddress!, password: password!);
+      addUserProfile();
       verifyEmail();
       emit(SignupSuccessState());
     } on FirebaseAuthException catch (ex) {
