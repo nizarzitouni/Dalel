@@ -3,6 +3,8 @@ import 'package:dalel/core/routes/app_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'widgets/home_nav_bar_widget.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
@@ -20,7 +22,10 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
-      body: const Center(child: Text('Home')),
+      body: const Center(
+        child: Text('Home'),
+      ),
+      // bottomNavigationBar: HomeNavBarWidget(),
     );
   }
 }

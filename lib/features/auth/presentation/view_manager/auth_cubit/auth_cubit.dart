@@ -48,21 +48,25 @@ class AuthCubit extends Cubit<AuthState> {
     emit(SignupLoadingState());
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailAddress!, password: password!);
-      addUserProfile();
-      verifyEmail();
+      await addUserProfile();
+      await verifyEmail();
       emit(SignupSuccessState());
     } on FirebaseAuthException catch (ex) {
-      if (ex.code == 'weak-password') {
-        emit(SignupFailureState(errorMessage: 'weak password'));
-      } else if (ex.code == 'email-already-in-use') {
-        emit(SignupFailureState(errorMessage: 'email-already-in-use'));
-      } else if (ex.code == 'invalid-email') {
-        emit(SignupFailureState(errorMessage: 'The email is invalid'));
-      } else {
-        emit(SignupFailureState(errorMessage: ex.code));
-      }
+      _signUpExceptionHandle(ex);
     } catch (ex) {
       emit(SignupFailureState(errorMessage: 'Exception: ${ex.toString()}'));
+    }
+  }
+
+  void _signUpExceptionHandle(FirebaseAuthException ex) {
+    if (ex.code == 'weak-password') {
+      emit(SignupFailureState(errorMessage: 'weak password'));
+    } else if (ex.code == 'email-already-in-use') {
+      emit(SignupFailureState(errorMessage: 'email-already-in-use'));
+    } else if (ex.code == 'invalid-email') {
+      emit(SignupFailureState(errorMessage: 'The email is invalid'));
+    } else {
+      emit(SignupFailureState(errorMessage: ex.code));
     }
   }
 

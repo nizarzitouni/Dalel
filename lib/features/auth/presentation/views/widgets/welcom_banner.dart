@@ -19,7 +19,7 @@ class WelcomeBanner extends StatelessWidget {
         children: [
           const Text(
             AppStrings.appName,
-            style: AppTextStyles.saira700style32,
+            style: AppTextStyles.saira700style42,
           ),
           const SizedBox(height: 18.0),
           Row(

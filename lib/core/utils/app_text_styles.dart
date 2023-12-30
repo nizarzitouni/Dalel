@@ -63,4 +63,10 @@ abstract class AppTextStyles {
     color: Colors.white,
     fontFamily: "Saira",
   );
+  static const saira700style42 = TextStyle(
+    fontSize: 42,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+    fontFamily: "Pacifico",
+  );
 }
