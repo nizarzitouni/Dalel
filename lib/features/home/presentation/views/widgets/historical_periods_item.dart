@@ -1,12 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:dalel/features/home/data/models/historical_periods_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/utils.dart';
 
 class HistoricalPeriodItem extends StatelessWidget {
-  const HistoricalPeriodItem({Key? key, required this.imageFrameUrl, required this.textCard}) : super(key: key);
-  final String textCard;
-  final String imageFrameUrl;
+  const HistoricalPeriodItem({Key? key, required this.historicalPeriodsModel}) : super(key: key);
+
+  final HistoricalPeriodsModel historicalPeriodsModel;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class HistoricalPeriodItem extends StatelessWidget {
             height: 47,
             width: 62,
             child: Text(
-              textCard,
+              historicalPeriodsModel.name,
               style: AppTextStyles.poppins500style18.copyWith(fontSize: 15, color: AppColors.deepBrown),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
@@ -43,7 +44,7 @@ class HistoricalPeriodItem extends StatelessWidget {
             height: 64,
             width: 47,
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(imageFrameUrl)),
+              image: DecorationImage(image: NetworkImage(historicalPeriodsModel.image)),
             ),
           ),
           const SizedBox(width: 16.0),
