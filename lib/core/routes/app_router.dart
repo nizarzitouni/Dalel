@@ -1,7 +1,7 @@
 import 'package:dalel/features/auth/presentation/view_manager/auth_cubit/auth_cubit.dart';
 import 'package:dalel/features/auth/presentation/views/forget_password_view.dart';
 import 'package:dalel/features/auth/presentation/views/sign_up_view.dart';
-import 'package:dalel/features/home/presentation/views/widgets/home_nav_bar_widget.dart';
+import 'package:dalel/features/home/presentation/views/home_nav_bar.dart';
 import 'package:dalel/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:dalel/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -51,7 +51,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kHomeNavBarView,
-        builder: (context, state) => HomeNavBarWidget(),
+        builder: (context, state) => HomeNavBar(),
       ),
     ],
   );
