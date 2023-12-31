@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dalel/features/home/data/models/historical_periods_model.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../../../core/utils/utils.dart';
 
@@ -11,6 +13,7 @@ class HistoricalPeriodItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('----------------------${historicalPeriodsModel.image} ----------------------');
     return Container(
       width: 164,
       height: 96,
@@ -40,11 +43,23 @@ class HistoricalPeriodItem extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          Container(
+          SizedBox(
             height: 64,
             width: 47,
-            decoration: BoxDecoration(
-              image: DecorationImage(image: NetworkImage(historicalPeriodsModel.image)),
+            // decoration: BoxDecoration(
+            //   image: DecorationImage(image: NetworkImage(historicalPeriodsModel.image)),
+            // ),
+            child: CachedNetworkImage(
+              imageUrl: historicalPeriodsModel.image,
+              placeholder: (context, url) => Shimmer.fromColors(
+                  baseColor: AppColors.grey,
+                  highlightColor: AppColors.offWhite,
+                  child: Container(
+                    height: 47,
+                    width: 64,
+                    color: AppColors.grey,
+                  )),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
           ),
           const SizedBox(width: 16.0),

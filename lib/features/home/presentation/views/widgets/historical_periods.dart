@@ -30,6 +30,7 @@ class HistoricalPeriods extends StatelessWidget {
             return SizedBox(
               height: 96,
               child: ListView.separated(
+                clipBehavior: Clip.none,
                 itemCount: historicalPeriods.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
