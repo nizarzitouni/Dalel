@@ -13,7 +13,6 @@ class HistoricalPeriodItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('----------------------${historicalPeriodsModel.image} ----------------------');
     return Container(
       width: 164,
       height: 96,

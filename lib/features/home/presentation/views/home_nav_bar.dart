@@ -1,4 +1,6 @@
+import 'package:dalel/features/home/presentation/view_manager/home_cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:dalel/features/home/presentation/views/home_view.dart';
@@ -38,7 +40,15 @@ class HomeNavBar extends StatelessWidget {
 }
 
 List<Widget> _buildScreens() {
-  return [const HomeView(), const CartView(), const SearchView(), const ProfileView()];
+  return [
+    BlocProvider(
+      create: (context) => HomeCubit()..getHistoricalPeridos(),
+      child: const HomeView(),
+    ),
+    const CartView(),
+    const SearchView(),
+    const ProfileView(),
+  ];
 }
 
 List<PersistentBottomNavBarItem> _navBarsItems() {
